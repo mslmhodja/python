@@ -1,6 +1,6 @@
 print("çıkmak için 999 yaz")
 ort = int(input("ortalaman kaç"))
-while ort!=999:    
+while (ort!=999) :    
     if ort<0:
         print("geçersiz not")
     elif ort <=20:
