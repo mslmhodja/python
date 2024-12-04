@@ -57,3 +57,13 @@ i=1
 while sayi[0]==sayi[1] or sayi[0]==sayi[2] or sayi[0]==sayi[3] or sayi[1]==sayi[2] or sayi[1]==sayi[3] or sayi[2]==sayi[3] :
   sayi = str(random.randrange(1000,10000))
 print(sayi)
+
+# 4 basamaklı rakamları farklı tahmin isteme
+while 1:
+  sayi= input("tahmininiz(4 basamaklı rakamları farklı): ")
+  if int(sayi) <1000 or int(sayi) >9999:
+    continue 
+  if sayi[0]==sayi[1] or sayi[0]==sayi[2] or sayi[0]==sayi[3] or sayi[1]==sayi[2] or sayi[1]==sayi[3] or sayi[2]==sayi[3]:
+    continue
+  break
+print("tamam")
