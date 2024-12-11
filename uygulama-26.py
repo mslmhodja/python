@@ -1,69 +1,94 @@
-# verilen 4 basamaklı sayının her basamağını tamsayı tipinde bir dizi elemanı olarak ekleyen program.
-
-sayi1 = "5678"  
-sayi_dizi = []
-sayi_dizi.append(int(sayi1[0]))
-sayi_dizi.append(int(sayi1[1]))
-sayi_dizi.append(int(sayi1[2]))
-sayi_dizi.append(int(sayi1[3]))
-
-# print(f"{sayi_dizi[0]}{sayi_dizi[1]}{sayi_dizi[2]}{sayi_dizi[3]}")
-
-# 4 basamaklı sayının rakamlarının birbirinden farklı olup olmadığını bulan kod
-
-if sayi1[0]==sayi1[1] or sayi1[0]==sayi1[2] or sayi1[0]==sayi1[3] or sayi1[1]==sayi1[2] or sayi1[1]==sayi1[3] or sayi1[2]==sayi1[3] :
-  print("rakamları birbirinden farklı değil")
-else:
-  print("rakamları birbirinden farklıdır")
-
-# iki tane 4 basamaklı sayıyı karşılaştır.
-#   1- alt alta gelen basamakları aynı olan kaç tane var
-#   5678
-#   1798
-#  1 tane var
-#   2- alt alta olmayıp diğer basamaklarla aynı olan kaç tane var
-#   5678
-#   6798
-#   2 tane var
-sayi2="1678"
-print(sayi1)
-print(sayi2)
-ayni =0
-if sayi1[0]==sayi2[0]:
-  ayni+=1
-if sayi1[1]==sayi2[1]:
-  ayni+=1
-if sayi1[2]==sayi2[2]:
-  ayni+=1
-if sayi1[3]==sayi2[3]:
-  ayni+=1
-print(f"AYNI= {ayni}")
-farkli=0
-if sayi1[0]==sayi2[1] or sayi1[0]==sayi2[2] or sayi1[0]==sayi2[3]:
-  farkli+=1
-if sayi1[1]==sayi2[0] or sayi1[1]==sayi2[2] or sayi1[1]==sayi2[3]:
-  farkli+=1
-if sayi1[2]==sayi2[0] or sayi1[2]==sayi2[1] or sayi1[2]==sayi2[3]:
-  farkli+=1
-if sayi1[3]==sayi2[0] or sayi1[3]==sayi2[1] or sayi1[3]==sayi2[2]:
-  farkli+=1
-print(f"FARKLI= {farkli}")
-
-# rastgele 4 basamaklı sayı üretme
+# aşağıdaki menüuü oluştur
+# SAYI TAHMİN OYUNU
+# -----------------
+# 1 - Yeni Oyun
+# 2 - Yardım
+# 3 - Çıkış
+#  Seçiminiz: 
 import random
-sayi = str(random.randrange(1000,10000))
-# rastgele 4 basamaklı rakamları birbirinden farklı sayı üretme
-i=1
-while sayi[0]==sayi[1] or sayi[0]==sayi[2] or sayi[0]==sayi[3] or sayi[1]==sayi[2] or sayi[1]==sayi[3] or sayi[2]==sayi[3] :
-  sayi = str(random.randrange(1000,10000))
-print(sayi)
+secim="0"
+sayi="0"
+tahmin="0"
+a=0
+f=0
+bildi=False
 
-# 4 basamaklı rakamları farklı tahmin isteme
-while 1:
-  sayi= input("tahmininiz(4 basamaklı rakamları farklı): ")
-  if int(sayi) <1000 or int(sayi) >9999:
-    continue 
-  if sayi[0]==sayi[1] or sayi[0]==sayi[2] or sayi[0]==sayi[3] or sayi[1]==sayi[2] or sayi[1]==sayi[3] or sayi[2]==sayi[3]:
-    continue
-  break
-print("tamam")
+def sayi_tut():
+    global sayi
+    sayi = str(random.randrange(1000,10000))
+    # rastgele 4 basamaklı rakamları birbirinden farklı sayı üretme
+    while sayi[0]==sayi[1] or sayi[0]==sayi[2] or sayi[0]==sayi[3] or sayi[1]==sayi[2] or sayi[1]==sayi[3] or sayi[2]==sayi[3] :
+        sayi = str(random.randrange(1000,10000))
+    print(sayi)    
+
+def tahmin_iste():
+    global tahmin
+    while 1:
+        tahmin= input("tahmininiz(4 basamaklı rakamları farklı): ")
+        if int(tahmin) <1000 or int(tahmin) >9999:
+            continue 
+        if tahmin[0]==tahmin[1] or tahmin[0]==tahmin[2] or tahmin[0]==tahmin[3] or tahmin[1]==tahmin[2] or tahmin[1]==tahmin[3] or tahmin[2]==tahmin[3]:
+            continue
+        break
+    print("tamam")
+
+def karsilastir():
+    global a
+    global f
+
+    a =0
+    if sayi[0]==tahmin[0]:
+        a+=1
+    if sayi[1]==tahmin[1]:
+        a+=1
+    if sayi[2]==tahmin[2]:
+        a+=1
+    if sayi[3]==tahmin[3]:
+        a+=1
+    print(f"aynı= {a}")
+    f=0
+    if sayi[0]==tahmin[1] or sayi[0]==tahmin[2] or sayi[0]==tahmin[3]:
+        f+=1
+    if sayi[1]==tahmin[0] or sayi[1]==tahmin[2] or sayi[1]==tahmin[3]:
+        f+=1
+    if sayi[2]==tahmin[0] or sayi[2]==tahmin[1] or sayi[2]==tahmin[3]:
+        f+=1
+    if sayi[3]==tahmin[0] or sayi[3]==tahmin[1] or sayi[3]==tahmin[2]:
+        f+=1
+    print(f"farklı= {f}")
+
+
+def tebrik():
+    print("Tebrikler! Bildiniz...")
+def oyunu_baslat():
+    print ("Oyun başladı")
+    global bildi
+    global a
+    sayi_tut()
+    while bildi==False:
+        tahmin_iste()
+        karsilastir()
+        if a==4:
+            bildi=True
+    tebrik()   
+while secim!="3":
+    print ("SAYI TAHMİN OYUNU")
+    print ( "-----------------")
+    print ( "1 - Yeni Oyun")
+    print ( "2 - Yardım")
+    print ( "3 - Çıkış"  )
+    secim = input ( " Seçiminiz:") 
+    if secim=="3":
+        continue
+    elif secim=="2":
+        print ("Bu oyun sayı 4 basamaklıtahmin oyunudur....")
+        input("devam etmek için entera bas")
+    elif secim=="1":       
+        # oyun oynama komutları buraya yazılacak.
+        oyunu_baslat()
+        input("devam etmek için entera bas")
+    else:  
+        print("yanlış seçim yaptınız.")
+        input("deva etmekı için entera bas")
+print("Güle Güle")
+
