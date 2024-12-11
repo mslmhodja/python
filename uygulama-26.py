@@ -63,6 +63,7 @@ def tebrik():
 def oyunu_baslat():
     print ("Oyun başladı")
     global bildi
+    bildi=False
     global a
     sayi_tut()
     while bildi==False:
