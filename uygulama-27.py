@@ -67,3 +67,4 @@ def usbul(sayi,us=2):
   print(sonuc)
 
 usbul(5)
+usbul(5,4)
