@@ -49,3 +49,21 @@ def ortalama(*sayilar):
   print(ort)
 ortalama(8,5,15,25,62,58,97)
 
+
+# bir sayının ver,len kuvvetini yani üssünü bulan fonksiyon
+def usbul(sayi,us)
+  sonuc=1
+  for i in range(1,us+1)
+     sonuc*=sayi
+  print(sonuc)
+
+usbul(5,3)
+
+# bir sayının verilen kuvvetini yani üssünü bulan fonksiyon, us verilmezse 2 kabul et.
+def usbul(sayi,us=2):
+  sonuc=1
+  for i in range(1,us+1):
+     sonuc*=sayi
+  print(sonuc)
+
+usbul(5)
