@@ -68,3 +68,26 @@ def usbul(sayi,us=2):
 
 usbul(5)
 usbul(5,4)
+
+# değer dönüren fonksiyon tanımlama
+# bir sayının verilen kuvvetini yani üssünü bulan fonksiyon
+# p(x)=5X^3 + 6x^2 + 7x +19
+# p(7)
+
+def usbul(sayi,us=2):
+  sonuc=1
+  for i in range(1,us+1):
+     sonuc*=sayi
+  return sonuc
+  
+s = usbul(5,4)
+
+print(s)
+
+print(5*usbul(7,3) + 6*usbul(7,2) + 6*usbul(7,1) + 19)
+
+
+
+# kendi kendini çağıraan yada tekrarlı fonksiyonlar.
+
+
