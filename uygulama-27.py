@@ -86,7 +86,23 @@ print(s)
 
 print(5*usbul(7,3) + 6*usbul(7,2) + 6*usbul(7,1) + 19)
 
+# verilen iki dik kenarın hipotenüsünü hesaplayan fonksiyon yaz. geriye değer döndürsün.
+# pow(5,2) sayının üssünü bulur, sqrt(16) karekökünü bulur.
+import math
+def hipotenus(a,b):
+  return math.sqrt(a**2 + b**2)
+  
+print(hipotenus(6,8))
 
+# verilen sayının tek yada çift olduğunu döndüren fonksiyon
+
+def tek_cift(s):
+  if s % 2 == 0 :
+     return "çift"
+  else:
+     return "tek"
+  
+print(tek_cift(0))
 
 # kendi kendini çağıraan yada tekrarlı fonksiyonlar.
 
