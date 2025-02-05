@@ -32,3 +32,20 @@ def toplama(*sayilar):
     toplam+=sayi
   print(toplam)
 toplama(8,5,15,25,62,58,97)
+
+
+# tüm sayıların ortalamasını bulma
+def ortalama(*sayilar):
+  toplam = 0
+  for sayi in sayilar:
+    toplam+=sayi
+  ort=toplam / len(sayilar)
+  print(ort)
+ortalama(8,5,15,25,62,58,97)
+
+# tüm sayıların ortalamasını bulma kolay yolu.
+def ortalama(*sayilar):
+  ort=sum(sayilar) / len(sayilar)
+  print(ort)
+ortalama(8,5,15,25,62,58,97)
+
