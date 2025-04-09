@@ -29,20 +29,6 @@ print(f"Tarih: {dtarih}")
 
 def burc_hesapla(tarih_str):
     ay = int(tarih_str[3:5])  # 4. ve 5. karakterler ay
-    burclar = {
-        1: "Oğlak",    # Ocak
-        2: "Kova",     # Şubat
-        3: "Balık",    # Mart
-        4: "Koç",      # Nisan
-        5: "Boğa",     # Mayıs
-        6: "İkizler",  # Haziran
-        7: "Yengeç",   # Temmuz
-        8: "Aslan",    # Ağustos
-        9: "Başak",    # Eylül
-        10: "Terazi",  # Ekim
-        11: "Akrep",   # Kasım
-        12: "Yay"      # Aralık
-    }
     if ay==1:
         return "oğlak"
     if ay==2:
