@@ -1,10 +1,68 @@
 # aşağıdaki gibi bir menü oluştur
-# Klasör değiştir ........... 1
-# Klasör oluştur  ........... 2
-# Klasör Sil      ........... 3
-# Klasör Adını değiştir...... 4
-# Aktif klasörü göster....... 5
-# Çıkış ......................0
-# verilen seçenek numarasna göre işlem yap
-# her işlem için bir fonksiyon tanımla
-# menüyü döngüye al
+#klasör değiştir................1
+#klasör oluştur................2
+#klasörü sil................3
+#klasör adını değiştir................4
+#aktif klasörü göster................5
+#çıkış................0
+#menüyü döngüye al
+#verilenseçenek numarasına göre işlem yap
+#her işlem için bir fonksiyon tanımla
+
+import os  
+  
+def klasor_degistir():  
+    klasor = input("Değiştirmek istediğiniz klasör yolunu girin: ")  
+    if os.path.exists(klasor):  
+        os.chdir(klasor)  
+        print(f"Aktif klasör: {os.getcwd()}")  
+    else:  
+        print("Klasör bulunamadı.")  
+  
+def klasor_olustur():  
+    klasor = input("Oluşturmak istediğiniz klasörün adını girin: ")  
+    os.mkdir(klasor)  
+    print(f"{klasor} klasörü oluşturuldu.")  
+  
+def klasoru_sil():  
+    klasor = input("Silmek istediğiniz klasörün adını girin: ")  
+    os.rmdir(klasor)  
+    print(f"{klasor} klasörü silindi.")  
+  
+def klasor_adini_degistir():  
+    eski_ad = input("Eski klasör adını girin: ")  
+    yeni_ad = input("Yeni klasör adını girin: ")  
+    os.rename(eski_ad, yeni_ad)  
+    print(f"{eski_ad} klasörü {yeni_ad} olarak değiştirildi.")  
+  
+def aktif_klasoru_goster():  
+    print(f"Aktif klasör: {os.getcwd()}")  
+  
+def menu():  
+    while True:  
+        print("\nMenü:")  
+        print("Klasör değiştir................1")  
+        print("Klasör oluştur................2")  
+        print("Klasörü sil....................3")  
+        print("Klasör adını değiştir.........4")  
+        print("Aktif klasörü göster...........5")  
+        print("Çıkış..........................0")  
+          
+        secim = input("Seçiminizi yapın: ")  
+          
+        if secim == '1':  
+            klasor_degistir()  
+        elif secim == '2':  
+            klasor_olustur()  
+        elif secim == '3':  
+            klasoru_sil()  
+        elif secim == '4':  
+            klasor_adini_degistir()  
+        elif secim == '5':  
+            aktif_klasoru_goster()  
+        elif secim == '0':   
+            break  
+        else:  
+            print("Geçersiz seçim, lütfen tekrar deneyin.")  
+  
+menu()  
