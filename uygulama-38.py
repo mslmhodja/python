@@ -22,4 +22,6 @@ if os.path.exists(sonuc):
 if os.path.isdir(sonuc):
   os.chdir(sonuc)
 
+# os.rename(eski ,yeni) dosya yada kalsörün adını değiştirir
+# os.rmdir(yol) verilen yoldaki klasörü siler.
 
