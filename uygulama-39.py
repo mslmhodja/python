@@ -7,3 +7,4 @@
 # Çıkış ......................0
 # verilen seçenek numarasna göre işlem yap
 # her işlem için bir fonksiyon tanımla
+# menüyü döngüye al
