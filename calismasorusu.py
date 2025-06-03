@@ -16,7 +16,7 @@ def ogrenci_ekle(ogrenciler):
         durum = gecti_mi(ort)
         ogrenciler.append((ad, not1, not2, ort, durum))
         print(f"{ad} eklendi. Ortalama: {ort:.2f} → {durum}")
-    except ValueError:
+    except:
         print("⚠️ Geçersiz not girdiniz!")
 
 # Fonksiyon: Öğrenci listesini göster
@@ -37,8 +37,8 @@ def dosyaya_kaydet(ogrenciler):
             dosya.write(satir)
         dosya.close()
         print("✅ Bilgiler 'notlar.txt' dosyasına kaydedildi.")
-    except Exception as e:
-        print(f"⚠️ Dosya yazma hatası: {e}")
+    except:
+        print("⚠️ Dosya yazma hatası")
 
 # Fonksiyon: Dosyadan oku ve verileri listeye aktar
 def dosyadan_oku(ogrenciler):
@@ -66,7 +66,7 @@ def dosyadan_oku(ogrenciler):
                 ogrenciler.append((ad, not1, not2, ort, durum))
             except (IndexError, ValueError):
                 print("⚠️ Satırdan veri ayrıştırılamadı!")
-    except FileNotFoundError:
+    except:
         print("❗ Dosya bulunamadı. Önce kaydetmelisiniz.")
 
 # Ana Menü Fonksiyonu
