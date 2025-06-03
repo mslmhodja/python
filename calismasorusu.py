@@ -64,7 +64,7 @@ def dosyadan_oku(ogrenciler):
                 ort = float(diger[2].split(": ")[1])
                 durum = diger[3].split(": ")[1]
                 ogrenciler.append((ad, not1, not2, ort, durum))
-            except (IndexError, ValueError):
+            except:
                 print("⚠️ Satırdan veri ayrıştırılamadı!")
     except:
         print("❗ Dosya bulunamadı. Önce kaydetmelisiniz.")
