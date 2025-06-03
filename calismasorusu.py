@@ -80,13 +80,16 @@ def dosyadan_oku(ogrenciler):
 
             try:
                 # Satırdan veriler ayrıştırılır
-                parcalar = satir.strip().split(" - ")
-                ad = parcalar[0]
-                diger = parcalar[1].split(", ")
-                not1 = float(diger[0].split(": ")[1])
-                not2 = float(diger[1].split(": ")[1])
-                ort = float(diger[2].split(": ")[1])
-                durum = diger[3].split(": ")[1]
+
+                parcalar = satir.strip().split(" - ")  # Satırın başındaki/sonundaki boşluklar ve \n silinir, sonra " - " işaretine göre ikiye bölünür
+                ad = parcalar[0]  # İlk parça öğrencinin adıdır (örnek: "Ali")
+
+                diger = parcalar[1].split(", ")  # İkinci parça (örnek: "Not1: 80, Not2: 90, Ort: 85.0, Durum: Geçti") virgüllerle bölünür
+
+                not1 = float(diger[0].split(": ")[1])  # "Not1: 80" ifadesinden ":" sonrası alınır → "80", sonra float'a çevrilir
+                not2 = float(diger[1].split(": ")[1])  # "Not2: 90" → "90" → 90.0
+                ort = float(diger[2].split(": ")[1])   # "Ort: 85.0" → "85.0" → 85.0
+                durum = diger[3].split(": ")[1]        # "Durum: Geçti" → "Geçti" (metin olduğu için float'a çevrilmez)
 
                 # Öğrenci listesine eklenir
                 ogrenciler.append((ad, not1, not2, ort, durum))
